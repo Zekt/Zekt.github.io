@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# 資訊之芽
+## 流程控制、二維陣列、字元
+
+
+---
+
+# Agenda
+
+--
+### 1. for 迴圈
+
+--
+### 2. break 和 continue
+
+--
+### 3. 二維陣列
+
+--
+### 4. 字元
+
+---
+layout: true
+# for 迴圈
+
+---
+
+```C++
+for( 初始敘述; 條件敘述; 迴圈敘述 ) {
+	迴圈內容;
+}
+```
+--
+
+```C++
+for( 1 ; 2, 5, 8, 11... ; 4, 7, 10 ) {
+	3, 6, 9 ;
+}
+```
+--
+印出 1~9
+```C++
+for(int i = 0; i < 10; i++) {
+	printf("%d ", i);
+}
+```
+
+---
+### 練習：九九乘法表
+印出 1\*1 到 9\*9，每印一排就換行
+```
+1x1=1	1*2=2	1*3=3	1*4=4    1*5=5     1*6=6  ...
+2x1=2	2*2=4	2*3=6	2*4=8    2*5=10    2*6=12 ...
+3x1=3	3*2=6	3*3=9	3*4=12   3*5=15    3*6=18 ...
+
+```
+
+---
+layout:true
+# Break & Continue
+
+---
+### Break
+跳脫當前迴圈
+
+### Continue
+進入下次迴圈
+
+---
+###練習
+九九乘法表，不輸出任何介於 30~60 的項目
+
+---
+layout: true
+# 二維陣列
+
+---
+```C++
+int array[10][10];
+```
+
+--
+
+|      | Column0 | Column1 | Column2 | ... |
+| ---- | ------: | ------: | ------: | --: |
+| Row0 | a[0][0] | a[0][1] | a[0][2] | ... |
+| Row1 | a[1][0] | a[1][1] | a[1][2] | ... |
+| Row2 | a[2][0] | a[2][1] | a[2][2] | ... |
+
+...  
+
+--
+
+a[2][1]
+
+|      | Column0 | Column1 | Column2 | ... |
+| ---- | ------: | ------: | ------: | --: |
+| Row0 | a[0][0] | a[0][1] | a[0][2] | ... |
+| Row1 | a[1][0] | a[1][1] | a[1][2] | ... |
+| Row2 | a[2][0] | <div style="color: red">a[2][1]</div> | a[2][2] | ... |
+
+---
+
+### 給值
+```C++
+int a[3][3] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+```
+
+--
+```C++
+int a[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+```
+
+--
+初始化常用
+```C++
+int a[3][3] = {0};
+```
+
+---
+### 練習
+#### 矩陣乘法 
+輸入：兩個二維矩陣
+```
+a00 a01
+a10 a11
+
+b00 b01
+b10 b11
+```
+
+輸出：
+```
+a00*b00+a01*b10 a00*b01+a01*b11
+a10*b01+a11*b11 a10*b01+a11*b11
+```
+
+---
+layout: true
+
+# 字元
+
+---
+#### 宣告
+```C++
+char c;
+```
+
+--
+#### 給值
+```C++
+c = 'A';
+c = 65;
+std::cout << c;
+```
+
+--
+### [ASCII 字碼表](http://3.bp.blogspot.com/_DylUcmsAmx0/TU0ButwjIUI/AAAAAAAAAEU/LzWK9l6XPuY/s640/ascii+alphbet+table.png)
+---
+### 特殊字元
+'\n'
+'\t'
+'\a'
+
+---
+### 練習
+
+凱撒加密/解密
+
+#### 輸入：
+字元c
+數字n
+
+#### 輸出：
+c+n位字元
+
+---
+
+</textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
