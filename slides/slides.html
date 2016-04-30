@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+	  @import url(https://fonts.googleapis.com/css?family=Fira+Mono:400,700);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Fira Mono'; }
+    </style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# 資訊之芽 Week 10
+```
+stream, random, struct
+```
+
+---
+# Stream
+
+--
+* ### 串流
+
+--
+* ### `<iostream>`, `>>`, `<<`
+
+--
+* ### File Stream
+
+--
+* ### String Stream
+
+---
+# Stream-`iostream`
+
+--
+* ### 常見的 `cin`, `cout`
+
+--
+* ### `<iomanip>`
+	* #### 控制輸出格式
+	* #### `setbase` 決定顯示進位
+	* #### `setprecision` 控制總位數
+	* #### `fixed` 控制小數點後位數
+
+---
+# `<iomanip>` 練習
+
+```C++
+int main() {
+	int a = 120;
+	std::cout << std::setbase(16) << a;
+}
+```
+
+```C++
+int main() {
+	double a = 1.102046;
+	std::cout << std::setprecision(5) << a;
+}
+```
+
+```C++
+int main() {
+	double a = 1.102046;
+	std::cout << std::fixed << std::setprecision(5) << a;
+}
+```
+
+---
+
+# File Stream
+```C++
+#include<fstream>
+std::ifstream fin;
+fin.open("filename");
+```
+
+```C++
+#include<fstream>
+std::ofstream fout;
+fout.open("filename");
+```
+--
+### 就像 cin/cout 一樣！
+
+--
+```C++
+fin >> a;
+fout << a;
+```
+
+---
+# String Stream
+```C++
+#include<sstream>
+std::stringstream ss;
+```
+
+--
+### stringstream 變數
+#### `ss << str;` 存入 stream
+#### `ss >> str;` 從 stringstream 放入 str
+#### `ss.str();` 以 string 形態拿出資料
+
+---
+# Random
+
+## 數學上 random 
+* 用兩個大質數構造
+* 練習-產生亂數的 function
+
+--
+
+## C++ 中 random
+```C++
+#include<cstdlib>
+int a = std::rand()%10;
+```
+--
+###練習
+用 rand() 產生 1~1000 中隨機 10 個數
+
+---
+# Struct-結構
+### 把一坨變數包起來
+```C++
+struct MyStruct {
+	int memberA;
+	double memverB;
+}
+```
+
+--
+
+### 作為變數使用，用 `.` 存取
+```C++
+MyStruct s;
+s.memberA;
+```
+
+--
+### 練習
+如何用結構記錄一個資訊之芽的學生？
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+	var slideshow = remark.create({
+		highlightStyle: 'monokai',
+	});
+	</script>
+  </body>
+</html>
