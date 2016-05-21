@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+	  @import url(https://fonts.googleapis.com/css?family=Fira+Mono:400,700);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Fira Mono'; }
+    </style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# 資訊之芽 C 語法班
+# 153, 353 385, 352 review
+
+---
+
+# 153
+
+--
+
+### 每次「算」出下一個排列
+
+--
+
+* 假設把目前的排序字母給上一序列的編號
+* e.g ABCDEFG -> 1234567
+
+--
+
+### 每次排列有可能出現: 1354762	
+
+--
+
+* 要怎麼找到下一組排列呢？
+
+---
+
+# 153
+
+--
+
+### 觀察到下一次排列: 1356247
+1234 -> 1243 -> 1324 -> 1342 -> 1423 -> 1432 -> 2134 -> 2143 -> ......
+
+--
+
+#### 1. 尋找結尾「最長遞減序列」，假設長度為 n 。
+
+--
+
+#### 2. 尋找 n 中恰比倒數 n-1 位大者，兩者交換。
+
+--
+
+#### 3. 將後 n 位反轉。
+
+--
+
+### 迴圈！
+
+---
+
+# 343
+
+--
+
+### `std::static_cast`
+
+--
+
+### 用 4 或 8 判斷該將 p 轉型成 `int*` 或 `long long int*`
+
+--
+
+### 用 for 加起來
+
+---
+
+# 385
+
+--
+
+## `swapChar()`
+
+```C++
+char* tmp = *a;
+*a = *b;
+*b = tmp;
+```
+
+--
+
+## `rotateRight()`
+
+```C++
+char tmp = text[length-1];
+for(int i = 1; i < length; i++)
+	text[i] = text[i-1];
+text[0] = tmp;
+```
+
+---
+
+# 352
+
+--
+
+* ### 像 153 一樣
+
+--
+
+* ### 遞迴！
+
+--
+
+### 先寫檢查函數
+* 直排
+* 橫排
+* 小九宮格
+* 盤面是否完成
+
+---
+
+# 352
+
+看起來像這樣:
+
+```
+遞迴(盤面，位置x，位置y) {
+	for(盤面[x][y]增加) {
+		if(檢查(盤面)) {
+			if(盤面完成()) 輸出答案;
+			遞迴(盤面, 下一個位置x, 下一個位置y);
+		}
+	}
+}
+```
+
+--
+
+之後會附上 code
+
+
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+	var slideshow = remark.create({
+		highlightStyle: 'monokai',
+	});
+	</script>
+  </body>
+</html>
