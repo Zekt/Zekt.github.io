@@ -45,13 +45,28 @@ h1, h2, h3 {
 			# Introduction
 			## 背後發生了什麼事？
 			* 世界上所有電腦在網路上都有一個位址，我們稱為 IP 位址，一般會用四組介於 0~255 的數字表示
-			* 例如台大資管的網址 `im.ntu.edu.tw` 對應到的 IP 位址就是 `140.112.106.2`
 			* 輸入網址時，網址被瀏覽器轉換成 IP 位址
-
-
-			# 
+			* 例如台大資管的網址 `im.ntu.edu.tw` 對應到的 IP 位址就是 `140.112.106.2`
 
 			---
+
+			# Introduction
+			## 網址又是如何被轉換成 IP 位址？
+			### DNS 伺服器（Domain Name System Server）
+			* 世界各地專門把網址轉換成 IP 位址的伺服器
+			* DNS 伺服器的 IP 位址已經被設定在我們的作業系統的網路設定裡了
+			* 瀏覽器在收到輸入的網址後，送去 DNS 伺服器，DNS 伺服器會回傳一個 IP 位址
+			* 接著透過 IP 位址就能直接跟目標電腦溝通
+
+			---
+
+			# Introduction
+			## 我們是怎麼看到網頁的？
+			### HTTP 協定（HyperText Transfer Protocol）
+			* 網址列開頭 `http://` 代表了我們要使用 `http` 協定來跟這台主機溝通
+			* 透過 HTTP 我們可以拿到一連串的字串，代表了網頁的內容
+			* 瀏覽器透過特定的解析方式，將這些字串解讀顯示成網頁
+			### 這些字串的格式被稱為 HTML(HyperText Markup Language)
 
 		</textarea>
 		<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
