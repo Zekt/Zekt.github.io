@@ -35,7 +35,7 @@ h1, h2, h3 {
 			---
 
 			# Introduction
-			## 我們是怎麼上網的？
+			### 我們是怎麼上網的？
 			1. 打開瀏覽器
 			2. 輸入網址（或點開連結）
 			3. 看到網頁
@@ -43,30 +43,410 @@ h1, h2, h3 {
 			---
 
 			# Introduction
-			## 背後發生了什麼事？
+			### 背後發生了什麼事？
+
+			--
+
 			* 世界上所有電腦在網路上都有一個位址，我們稱為 IP 位址，一般會用四組介於 0~255 的數字表示
+			
+			--
+
 			* 輸入網址時，網址被瀏覽器轉換成 IP 位址
+
+			--
+
 			* 例如台大資管的網址 `im.ntu.edu.tw` 對應到的 IP 位址就是 `140.112.106.2`
 
 			---
 
 			# Introduction
-			## 網址又是如何被轉換成 IP 位址？
-			### DNS 伺服器（Domain Name System Server）
+			### 網址又是如何被轉換成 IP 位址？
+
+			--
+
+			#### DNS 伺服器（Domain Name System Server）
+
+			--
+
 			* 世界各地專門把網址轉換成 IP 位址的伺服器
+
+			--
+
 			* DNS 伺服器的 IP 位址已經被設定在我們的作業系統的網路設定裡了
+
+			--
+
 			* 瀏覽器在收到輸入的網址後，送去 DNS 伺服器，DNS 伺服器會回傳一個 IP 位址
+
+			--
+
 			* 接著透過 IP 位址就能直接跟目標電腦溝通
 
 			---
 
 			# Introduction
-			## 我們是怎麼看到網頁的？
-			### HTTP 協定（HyperText Transfer Protocol）
+			### 我們是怎麼看到網頁的？
+
+			--
+
+			#### HTTP 協定（HyperText Transfer Protocol）
+
+			--
+
 			* 網址列開頭 `http://` 代表了我們要使用 `http` 協定來跟這台主機溝通
+
+			--
+
 			* 透過 HTTP 我們可以拿到一連串的字串，代表了網頁的內容
+
+			--
+
 			* 瀏覽器透過特定的解析方式，將這些字串解讀顯示成網頁
+
+			--
+
 			### 這些字串的格式被稱為 HTML(HyperText Markup Language)
+			### 我們常見的網頁其實就是文字檔
+
+			---
+
+			class: center, middle
+
+			# HTML
+
+			---
+
+			# HTML
+			### 如何編輯？
+			* 其實就是一般的文字檔，可以使用一般編輯器編輯（例如記事本）
+			* 有些工具專門用於撰寫程式碼，內建程式碼上色及許多擴充功能，能讓網頁編輯起來更迅速。
+			* 例如： 我們今天使用的 sublime text
+
+			---
+
+			# HTML
+			### 一個基本的網頁架構如下
+
+			```HTML
+			<!DOCTYPE html>
+			<html lang="en">
+				<head>
+					    <meta charset="UTF-8">
+					    <title>Document</title>
+				</head>
+				<body>
+
+				</body>
+			</html>
+			```
+			
+			* 將這串文字存成 `hello.html`
+			* 用瀏覽器（Chrome, Firefox）打開檔案就會看到網頁
+
+			---
+
+			# HTML
+			### 基本語法
+			
+			```HTML
+			<元素名稱 屬性名稱="屬性質"> 內容 </元素名稱>
+			```
+
+			像剛剛看到的
+			
+			```HTML
+			<html lang="en">
+				...
+			</html>
+			```
+
+			---
+			
+			# HTML
+			### 一個基本的網頁一定要有的元素
+			* `html`
+				- 包含了所有程式碼
+			* `head`
+				- 需要瀏覽器知道、但不會顯示在網頁上的元素
+			* `body`
+				- 會顯示出的 html 本體
+
+			---
+
+			# HTML
+			### 常見元素
+			#### 都會放在 body 裡
+			`div, p, img, span, ol...`
+			* 與元素的性質相關，告訴瀏覽器該解讀為什麼
+			* 例如標題、段落、圖片、列表等等
+			* 各個元素內容參考講義
+
+			---
+
+			範例一：
+
+			```HTML
+			<h1>大標題</h1>
+			<h2>中標題</h2>
+			清單：
+			<ol>
+				<li>第一項</li>
+				<li>第二項</li>
+				<li>第三項</li>
+			</ol>
+			```
+
+			範例二：
+			
+			```HTML
+			<img src="http://dogr.io/doge.png"></img>
+			<a href="http://lmgtfy.com/?q=doge">Search for Doge!</a>
+			```
+
+			---
+			
+			class: center, middle
+
+			# CSS
+			## 進入 Web 2.0 - 讓網頁更豐富
+
+			---
+			# HTTP
+			### 並不只能傳送 HTML
+			透過 HTTP，可以傳送各式各樣的檔案
+			#### Web 2.0 三大支柱
+			![](https://antoniovazquezblanco.github.io/images/posts/2014-06-26-HTML_CSS_JS_logo.png)
+
+			---
+
+			# HTML, CSS, JavaScript
+
+			* HTML
+				- 網頁骨架
+			* CSS
+				- 網頁元素樣式
+			* JavaScript
+				- 操作、控制網頁上的元素
+
+			--
+
+			## 今天重點：HTML+CSS
+
+			---
+
+			# CSS
+			### 選擇網頁上的一個元素，並賦予它想要的樣式。
+			#### CSS 範例：
+				
+			```CSS
+			selector {
+			    property: value;
+			}
+			```
+
+			```HTML
+			<p style="color: red">變色的字</p>
+			```
+
+			```HTML
+			<p>變色的字</p>
+			<style>
+				p {
+					color: red;
+				}
+			</style>
+			```
+
+			一般引入 CSS 的方式分為行內、內部、外部三種
+
+			---
+
+			class: center, middle
+
+			# 練習一
+			#### 講義第 7 頁第 1 題
+
+			---
+
+			# CSS
+
+			### 妥善使用 Selector（參考講義）
+			可以透過 id, class, 元素名稱來選擇元素  
+			也能進一步選擇包含於某種元素下的另一元素等等
+
+			#### 例：
+
+			```CSS
+			#doge p {
+				color: red;
+			}
+			```
+			這樣即是選擇 id 為 `doge` 的元素下的所有 p 元素，並將其中的字體顏色皆指定為紅色
+
+			---
+
+			class: center, middle
+
+			# 練習二
+			#### 講義第 7 頁第 2 題
+
+			---
+
+			# CSS 元素位置 Positioning
+
+			```CSS
+			#doge {
+				position: static;
+			}
+			```
+
+			* static
+			* relative
+			* fixed
+			* absolute
+
+			- 見講義
+
+			---
+
+			# CSS Box Model
+
+			HTML 元素在畫面上所佔的空間
+
+			* 一個元素的高與寬能用 `height` 及 `weight` 修改
+			* 一個元素的 Box Model 可以分為元素內容、padding、border、margin 四個部分
+
+			--
+
+			### 開發者工具
+			* Chrome, Safari, Firefox 都很常見
+			* 用於觀察 HTML 元素、其中的 CSS 樣式、以及兩者的變化
+
+			---
+
+			# CSS 字體
+			見講義
+
+			--
+
+			# CSS 視覺屬性
+			* `background`
+				- 控制背景樣式
+				- 如圖案、顏色、圖案大小、位置等
+			* 其他屬性如 `border` 大小、顏色、圓角等等
+
+			---
+
+			### CSS 屬性那麼多，我怎麼知道哪個屬性要是哪個值才能滿足我的想法？
+
+			--
+
+			#### Google it
+			e.g. 如何讓元素的背景圖片放大到剛好塞下整個畫面？
+			```
+			Google:
+			CSS background image fit to width/height
+			```
+
+			--
+
+			接著你或許可以找到：
+			```CSS
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center; 
+			```
+
+			MDN - 查詢各式屬性語法及概念解說的好地方
+
+			---
+
+			class: center, middle
+
+			# 練習三
+			#### 講義第 7 頁第 3 題
+
+			---
+
+			class: center, middle
+
+			# Framework - 框架
+
+			---
+
+			# Framework
+
+			### 什麼是 Framework？
+
+			#### 他人寫好、整理好規則，透過一套規範過的使用方式便能快速套上規則的程式碼組合
+
+			--
+
+			### 為什麼要用 Framework？
+
+			因為重寫一次程式碼很累。
+
+			---
+			
+			# Framework 範例 - Bootstrap
+
+			### 使用方式：
+			* 引入 `bootstrap.min.css` 和 `bootstrap.min.js` 到網頁中
+			* 基本上只要撰寫架構正確的 HTML 及 class 屬性，就能套用到對應的 CSS 屬性
+
+			--
+
+			#### e.g 快速產生一個漂亮的按鈕
+
+			```HTML
+			<a class="btn btn-default" href="#" role="button">Link</a>
+			```
+
+			```HTML
+			<button type="button" class="btn btn-info">Info</button>
+			```
+
+			---
+
+			# Framework 範例 - Bootstrap
+
+			## Grid System
+			* 方便排版 
+			* 將螢幕寬度分為 12 等分
+			* 範例：
+
+			```HTML
+			<div class="row">
+				 <div class="col-md-8">.col-md-8</div>
+				 <div class="col-md-4">.col-md-4</div>
+			</div>
+			```
+
+			---
+
+			class: center, middle
+
+			# Template - 樣板
+
+			---
+
+			# Template
+			* 比 Framework 更完整，基本上就是寫好的網頁，但能夠被任意修改符合大家的需求
+			* 大多會有主題，例如展示產品用的網頁樣板、跟使用者互動的控制介面樣板等等
+
+			### 有許多免費樣板能夠下載來修改：
+
+			[Start Bootstrap](http://startbootstrap.com) - 各種基於 Bootstrap 的樣板
+
+			[HTML5 UP](http://html5up.net) - 許多簡潔又用途十分廣泛的樣板
+
+			大部分的樣板也是基於許多框架寫成的，因此了解框架的架構與概念、並學習如何使用，都有助於理解這些樣板的程式碼，才能再加以做出大幅度修改。如果只是改改圖片與文字，大多的網站便會長的如出一轍，失去了原創性跟開發者掌握網頁的能力。
+
+			---
+
+			# The End
+			## Q & A
+
 
 		</textarea>
 		<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
